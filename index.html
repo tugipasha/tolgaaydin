@@ -57,11 +57,11 @@
 
   <!-- Footer -->
   <footer class="border-t border-slate-800 py-6 text-center text-sm text-slate-500">
-    © 2025 • Kişisel Blog • Made By Tolga Aydın
+    © 2025 • Kişisel Blog • Built with 💙
   </footer>
 
   <script>
-    // Giriş İntrosunun Animasyonu
+    // Intro animasyonu
     window.addEventListener('DOMContentLoaded', function () {
       var intro = document.getElementById('intro');
       var content = document.getElementById('introContent');
@@ -89,18 +89,18 @@
     var blogPosts = [
       {
         title: 'İlk Blog Yazım',
-        date: '14 Aralık 2025',
-        content: 'Klasik prosedür yazısı.'
+        date: '12 Aralık 2025',
+        content: 'Bu blogu neden açtım, burada neler paylaşacağım ve bu yolculuktan ne bekliyorum.'
       },
       {
-        title: '2020 den bu yana yazılımdaki tecrübem',
-        date: '14 Aralık 2025',
-        content: 'Buraya yazılım öğrenmeye başladığım günden beri yaptıklarımı içeren oldukça detaylı bir yazı gelecek.'
+        title: 'Yazılım Öğrenirken',
+        date: '8 Aralık 2025',
+        content: 'Tutorial izlemekle gerçekten öğrenmek arasındaki fark ve kendi çıkardığım dersler.'
       },
       {
-        title: '"BionicText" isimli TÜBİTAK projem',
-        date: '14 Aralık 2025',
-        content: 'BionicText ile ilgili detay yazısı hazırlanıp buraya yüklenecek.'
+        title: 'Projelerim',
+        date: '1 Aralık 2025',
+        content: 'Üzerinde çalıştığım projeler, hatalarım ve öğrendiklerim.'
       }
     ];
 
@@ -138,18 +138,23 @@
       var postsEl = document.getElementById('posts');
       postsEl.innerHTML = '';
 
+      // Liste başlığını gizle
+      var postsSection = document.getElementById('postsSection');
+      var sectionTitle = postsSection.querySelector('h3');
+      var sectionDesc = postsSection.querySelector('p');
+      if (sectionTitle) sectionTitle.style.display = 'none';
+      if (sectionDesc) sectionDesc.style.display = 'none';
+
       var hero = document.getElementById('hero');
       hero.classList.remove('text-center');
       hero.classList.add('text-left');
-      hero.style.paddingTop = '4rem';
-      hero.style.paddingBottom = '2rem';
 
       document.getElementById('heroTitle').innerText = blogPosts[postIndex].title;
       document.getElementById('heroDesc').innerText = blogPosts[postIndex].date;
 
       var single = document.createElement('article');
-      single.className = 'max-w-3xl mx-auto px-4 mt-6';
-      single.innerHTML = '<div class="text-left leading-relaxed text-slate-300 whitespace-normal">' + blogPosts[postIndex].content + '</div>';
+      single.className = 'max-w-3xl mx-auto px-4 mt-8 text-slate-200';
+      single.innerHTML = '<div class="leading-relaxed text-base">' + blogPosts[postIndex].content + '</div>';
 
       postsEl.appendChild(single);
     } else {
